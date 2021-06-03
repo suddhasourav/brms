@@ -66,7 +66,8 @@ posterior_smooths.brmsfit <- function(object, smooth, newdata = NULL,
 #' @export
 posterior_smooths.btl <- function(object, fit, smooth, newdata = NULL, 
                                   nsamples = NULL, subset = NULL, ...) {
-  smooth <- rm_wsp(as_one_character(smooth))
+  #smooth <- rm_wsp(as_one_character(smooth))
+  smooth <- as_one_character(smooth)
   smef <- tidy_smef(object, fit$data)
   smterms <- unique(smef$term)
   if (!smooth %in% smterms) {
